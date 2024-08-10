@@ -1,0 +1,18 @@
+{
+  "name": "assest-trading-tracker",
+  "version": "1.0.0",
+  "description": "Assignment to create Backend Api in node.js for Assest Trading Tracker ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Backend",
+    "Node.js",
+    "Express",
+    "Api",
+    "Trading"
+  ],
+  "author": "Ashwani Kumar",
+  "license": "ISC"
+}
