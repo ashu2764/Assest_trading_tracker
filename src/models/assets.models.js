@@ -1,8 +1,8 @@
-import { timeStamp } from "console";
-import mongoose, { Schema } from "mongoose";
-import { type } from "os";
 
-const assestsSchema = new Schema(
+import mongoose, { Schema } from "mongoose";
+
+
+const assetsSchema = new Schema(
     {
         name: {
             type: String,
@@ -18,7 +18,7 @@ const assestsSchema = new Schema(
         },
         status: {
             type: String,
-            enum: ["draft", "published"],
+            enum: ["draft", "published", "unpublished"],
             default: "draft",
         },
         creator: {
@@ -45,4 +45,4 @@ const assestsSchema = new Schema(
     { timestamps: true }
 );
 
-export const Assests = mongoose.model("Assests", assestsSchema);
+export const Assets = mongoose.model("Assets", assetsSchema);
