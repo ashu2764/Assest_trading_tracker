@@ -223,5 +223,5 @@ export {
     getMarketplaceAssets,
     unPublishAsset,
     deleteAsset,
-    getTradingHistory
+    getTradingHistory,
 };

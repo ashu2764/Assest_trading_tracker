@@ -239,23 +239,24 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
     }
 });
 
-const getUser = asyncHandler(async(req,res)=>{
-    const{userId} = req.body
-    const user = await User.findById(userId).select("-password -refreshToken")
-    if(!user){
-        throw new ApiError(400, "Can not get User datails")
+const getUser = asyncHandler(async (req, res) => {
+    const { userId } = req.body;
+    const user = await User.findById(userId).select("-password -refreshToken");
+    if (!user) {
+        throw new ApiError(400, "Can not get User datails");
     }
 
-
     return res
-    .status(200)
-    .json(
-        new ApiResponse(
-            201,
-            user,
-            "User Fetched Successfully"
-        )
-    )
+        .status(200)
+        .json(new ApiResponse(201, user, "User Fetched Successfully"));
 });
 
-export { registerUser, loginUser, logOutUser, refreshAccessToken, addCredits, deductCredits, getUser };
+export {
+    registerUser,
+    loginUser,
+    logOutUser,
+    refreshAccessToken,
+    addCredits,
+    deductCredits,
+    getUser,
+};

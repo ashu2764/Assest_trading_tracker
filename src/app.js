@@ -25,12 +25,14 @@ app.use(cookieParser());
 //Routes import
 import userRouter from './routes/user.routes.js'
 import assetsRoutes from './routes/assets.routes.js'
+import paymentRouter from './routes/payment.routes.js'
 
 
 
 //routes declaration
 app.use("/api/v1/users", userRouter)
 app.use("/api/v1/assets", assetsRoutes)
+app.use("/api/v1/payment", paymentRouter)
 
 
 
