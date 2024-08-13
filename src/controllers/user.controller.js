@@ -149,7 +149,7 @@ const addCredits = asyncHandler(async (req, res) => {
         throw new ApiError(400, "User not found while adding credits");
     }
 
-    user.credits += amount;
+    user.credit += amount;
     await user.save();
 
     return res
@@ -157,7 +157,7 @@ const addCredits = asyncHandler(async (req, res) => {
         .json(
             new ApiResponse(
                 201,
-                { credits: user.credits },
+                { credits: user.credit },
                 "Credits added successfully"
             )
         );
@@ -177,11 +177,11 @@ const deductCredits = asyncHandler(async (req, res) => {
         throw new ApiError(401, "User not found for deduct credits");
     }
 
-    if (user.credits < amount) {
+    if (user.credit < amount) {
         throw new ApiError(401, "Invalid action while deducting credits");
     }
 
-    user.credits -= amount;
+    user.credit -= amount;
 
     await user.save();
 
@@ -190,7 +190,7 @@ const deductCredits = asyncHandler(async (req, res) => {
         .json(
             new ApiResponse(
                 201,
-                { credits: user.credits },
+                { credits: user.credit },
                 "Credits deducted Successfully"
             )
         );
