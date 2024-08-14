@@ -6,9 +6,8 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
 const requestToBuyAsset = asyncHandler(async (req, res) => {
-    const { assetId, offerPrice} = req.body;
+    const { assetId, offerPrice } = req.body;
     const buyerId = req.user.userId;
-    console.log(buyerId)
 
     const asset = await Assets.findById(assetId).populate("currentHolder");
 

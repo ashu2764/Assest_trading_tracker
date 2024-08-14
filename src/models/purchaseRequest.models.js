@@ -18,7 +18,7 @@ const paymentSchema = new Schema(
             ref: "User",
             required: true,
         },
-        offerPrice: {
+        offerPrice: {       
             type: Number,
             required: true,
         },
