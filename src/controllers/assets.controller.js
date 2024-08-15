@@ -36,8 +36,8 @@ const createAsset = asyncHandler(async (req, res) => {
         description,
         image: image.url,
         status,
-        creator: req.user.userId,
-        currentHolder: req.user.userId,
+        creator: req.user._id,
+        currentHolder: req.user._id,
     });
 
     if (!asset) {
@@ -55,7 +55,7 @@ const publishAsset = asyncHandler(async (req, res) => {
         throw new ApiError(404, "Asset not found");
     }
 
-    if (asset.creator !== req.user.userId) {
+    if (asset.creator !== req.user._id) {
         throw new ApiError(403, "Unauthorized request");
     }
 
@@ -77,7 +77,7 @@ const unPublishAsset = asyncHandler(async (req, res) => {
         throw new ApiError(404, "Asset not found");
     }
 
-    if (asset.creator !== req.user.userId) {
+    if (asset.creator !== req.user._id) {
         throw new ApiError(403, "You are not the creator of this asset");
     }
 
@@ -99,7 +99,7 @@ const deleteAsset = asyncHandler(async (req, res) => {
         throw new ApiError(404, "Asset not found");
     }
 
-    if (asset.creator !== req.user.userId) {
+    if (asset.creator !== req.user._id) {
         throw new ApiError(403, "You are not the creator of this asset");
     }
 
@@ -129,7 +129,7 @@ const getAssetDetails = asyncHandler(async (req, res) => {
 });
 
 const getUserAssets = asyncHandler(async (req, res) => {
-    const asset = await Assets.find({ creator: req.user.id });
+    const asset = await Assets.find({ creator: req.user._id });
 
     if (!asset) {
         throw new ApiError(404, "Error while feteching user assets details");
@@ -152,7 +152,7 @@ const tradeAsset = asyncHandler(async (req, res) => {
         throw new ApiError(404, "Asset not found");
     }
 
-    if (asset.currentHolder !== req.user.userId) {
+    if (asset.currentHolder !== req.user.user_id) {
         throw new ApiError(403, "You are not the current holder of this asset");
     }
 

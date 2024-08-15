@@ -21,5 +21,5 @@ router.route("/logout").post(varifyJWT, logOutUser);
 router.route("/refresh-token").post(refreshAccessToken);
 router.route("/addCredits").post(varifyJWT,addCredits)
 router.route("/deductCredits").post(varifyJWT,deductCredits)
-router.route("/getUser/:id").get(varifyJWT,getUser)
+router.route("/getUser").get(varifyJWT,getUser)
 export default router;

@@ -241,15 +241,17 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 });
 
 const getUser = asyncHandler(async (req, res) => {
-    const { userId } = req.body;
-    const user = await User.findById(userId).select("-password -refreshToken");
-    if (!user) {
-        throw new ApiError(400, "Can not get User datails");
+    const  userId  = req.user._id;
+    const user = await User.findById(userId);
+
+    if(!user){
+        throw new ApiError(500, "Can not find the user")
     }
+    
 
     return res
         .status(200)
-        .json(new ApiResponse(201, user, "User Fetched Successfully"));
+        .json(new ApiResponse(201,user, "User Fetched Successfully"));
 });
 
 export {
