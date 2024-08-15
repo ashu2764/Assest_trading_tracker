@@ -70,7 +70,7 @@ const negotiatePurchaseRequest = asyncHandler(async (req, res) => {
         throw new ApiError(404, "Purchase request not found");
     }
 
-    if (purchaseRequest.seller._id !== sellerId) {
+    if (purchaseRequest.seller._id.toString() !== sellerId.toString()) {
         throw new ApiError(403, "You are not the seller of this asset");
     }
 
@@ -104,7 +104,7 @@ const acceptPurchaseRequest = asyncHandler(async (req, res) => {
         throw new ApiError(404, "Purchase request not Found");
     }
 
-    if (purchaseRequest.seller._id !== sellerId) {
+    if (purchaseRequest.seller._id.toString() !== sellerId.toString()) {
         throw new ApiError(403, "You are not seller of this asset");
     }
 
