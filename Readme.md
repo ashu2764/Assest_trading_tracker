@@ -3,6 +3,9 @@
 ## Postman Documentation
 https://documenter.getpostman.com/view/28173427/2sA3s6DpKL
 
+## Docker repositry
+docker pull ashu2764/assesttradingtracker-api
+
 
 # Overview
     This project provides an API for managing asset trades between users. It includes user authentication, asset management, and trading functionalities. The backend is built using Node.js, Express.js, and MongoDB.
